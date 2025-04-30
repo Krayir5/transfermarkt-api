@@ -13,8 +13,8 @@ class PlayerPlaceOfBirth(TransfermarktBaseModel):
 
 
 class PlayerPosition(TransfermarktBaseModel):
-    main: str
-    other: list[str]
+    main: Optional[str]
+    other: Optional[list[str]]
 
 
 class PlayerClub(TransfermarktBaseModel):
@@ -60,9 +60,9 @@ class PlayerProfile(TransfermarktBaseModel, AuditMixin):
     full_name: Optional[str]
     name_in_home_country: Optional[str]
     image_url: Optional[HttpUrl]
-    date_of_birth: date
+    date_of_birth: Optional[date]
     place_of_birth: PlayerPlaceOfBirth
-    age: int
+    age: Optional[int]
     height: Optional[int]
     citizenship: list[str]
     is_retired: bool
@@ -74,6 +74,6 @@ class PlayerProfile(TransfermarktBaseModel, AuditMixin):
     market_value: Optional[int]
     agent: Optional[PlayerAgent]
     outfitter: Optional[str]
-    socialMedia: Optional[list[HttpUrl]]
+    socialMedia: Optional[list[str]]
     trainer_profile: Optional[TrainerProfile]
     relatives: Optional[list[Relatives]]
